@@ -12,6 +12,17 @@ let handleRequest = (request, response) => {
             if (request.url === "/") {
                 response.writeHead(200, { "Content-Type": "text/plain"});
                 response.write("Hello there at /");
+            } else if (request.url === "/k") {
+                response.writeHead(200, {'Content-Type': 'text/html'});
+                fs.readFile('./public/keyboard.html', null, function (error, data) {
+                    if (error) {
+                        response.writeHead(404);
+                        response.write('Whoops! File not Found!');
+                    } else {
+                        response.write(data);
+                    }
+                    response.end();
+                });
             }
             break;
         case "POST":
