@@ -34,9 +34,13 @@ let handleRequest = (request, response) => {
 //    });
 };
 
-http.createServer(handleRequest).listen(port, hostname, () => {
+http.createServer(handleRequest).listen(() => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
+
+//http.createServer(handleRequest).listen(port, hostname, () => {
+//    console.log(`Server running at http://${hostname}:${port}/`);
+//});
 
 let getHomePage = (request, response) => {
     
