@@ -34,7 +34,8 @@ let handleRequest = (request, response) => {
 //    });
 };
 
-http.createServer(handleRequest).listen(9000, () => {
+const PORT = process.env.PORT || 3000;
+http.createServer(handleRequest).listen(PORT, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
 });
 
